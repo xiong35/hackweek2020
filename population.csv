@@ -64,7 +64,7 @@ East Asia & Pacific,2328220870
 Europe & Central Asia (excluding high income),417797257
 Europe & Central Asia,918793590
 Ecuador,17084357
-"Egypt, Arab Rep.",98423595
+Egypt,98423595
 Euro area,341783171
 Spain,46723749
 Estonia,1320884
@@ -77,6 +77,7 @@ France,66987244
 Faroe Islands,48497
 "Micronesia, Fed. Sts.",112640
 Gabon,2119275
+UK,66488991
 United Kingdom,66488991
 Georgia,3731000
 Ghana,29767108
@@ -92,7 +93,7 @@ Guatemala,17247807
 Guam,165768
 Guyana,779004
 High income,1210312147
-"Hong Kong SAR, China",7451000
+Hong Kong,7451000
 Honduras,9587522
 Heavily indebted poor countries (HIPC),780234406
 Croatia,4089400
@@ -107,7 +108,8 @@ IDA only,1084407516
 Isle of Man,84077
 India,1352617328
 Ireland,4853506
-"Iran, Islamic Rep.",81800269
+North Ireland,2000000
+Iran,81800269
 Iraq,38433600
 Iceland,353574
 Israel,8883800
@@ -121,7 +123,8 @@ Kyrgyz Republic,6315800
 Cambodia,16249798
 Kiribati,115847
 St. Kitts and Nevis,52441
-"Korea, Rep.",51635256
+Korea,51635256
+South Korea,51635256
 Kuwait,4137309
 Latin America & Caribbean (excluding high income),609013934
 Lao PDR,7061507
@@ -197,6 +200,7 @@ French Polynesia,277679
 Qatar,2781677
 Romania,19473936
 Russian Federation,144478050
+Russia,144478050
 Rwanda,12301939
 South Asia,1814388744
 Saudi Arabia,33699947
@@ -246,6 +250,7 @@ Ukraine,44622516
 Upper middle income,2655635719
 Uruguay,3449299
 United States,327167434
+US,327167434
 Uzbekistan,32955400
 St. Vincent and the Grenadines,110210
 "Venezuela, RB",28870195
@@ -260,4 +265,5 @@ Kosovo,1845300
 South Africa,57779622
 Zambia,17351822
 Zimbabwe,14439018
-Other,307230187
+Ivory Coast,24900000
+Others,307230187
