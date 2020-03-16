@@ -17,6 +17,10 @@ for daily_csv in daily_datas:
     today_data = dict()
     for i in range(df.shape[0]):
         country = df.loc[i, 'Country/Region']
+        if country in ['Macau', 'Taiwan', 'Mainland China']:
+            country = 'China'
+        if country == ' Azerbaijan':
+            country = 'Azerbaijan'
         confirmed = df.loc[i, 'Confirmed']
         deaths = df.loc[i, 'Deaths']
         recovered = df.loc[i, 'Recovered']
@@ -38,4 +42,4 @@ for daily_csv in daily_datas:
 
 
 with open('./world_data.json', 'w') as f:
-    f.write(json.dumps(world_data, ensure_ascii=False,indent=4))
+    f.write(json.dumps(world_data, ensure_ascii=False, indent=4))
