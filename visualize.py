@@ -1,37 +1,40 @@
 
-from pyecharts import options as opts
-from pyecharts.charts import Geo,
 from pyecharts import Map
-from pyecharts.globals import ChartType, SymbolType
-import echarts_countries_pypkg
 import json
 
-# pip install pyecharts==0.5.10
 
-value = [95.1, 23.2, 43.3, 66.4, 88.5]
-attr = ["China", "Canada", "Brazil", "Russia", "United States"]
-map0 = Map("世界地图示例")
-map0.add("世界地图", attr, value, maptype="world", is_visualmap=True, visual_text_color='#000')
-map0.render(path="世界地图.html")
+with open(R'.\world_confirmed_data.json') as f:
+    lines = f.readlines()
 
-# with open(R'.\world_data.json') as f:
-#     lines = f.readlines()
+json_str = ''
+for line in lines:
+    json_str += line
 
-# json_str = ''
-# for line in lines:
-#     json_str += line
+world_data_dict = json.loads(json_str)
+countries = []
+confirmed = []
+for country, data_list in world_data_dict.items():
+    if data_list:
+        countries.append(country)
+        confirmed.append(data_list[-1])
 
-# world_data_dict = json.loads(json_str)
-# countries = []
-# confirmed = []
-# for country, info_dic in world_data_dict.items():
-#     countries.append(country)
-#     confirmed.append(info_dic['confirmed'][-1])
-# zipped = zip(countries, confirmed)
-# input_data = [z for z in zipped]
-# print(input_data)
-# geo = Geo()
-# geo.add_schema(maptype='world')
-# geo.add("", input_data)
 
-# geo.render()
+map = Map("covid-19疫情地图", width=1000, height=500)
+map.add(
+    "",
+    countries,
+    confirmed,
+    maptype="world",
+    is_visualmap=True,
+    is_map_symbol_show=False,
+    is_piecewise=True,
+    visual_text_color="#000",
+    pieces=[
+            {"max": 100, "min": 0, "label": "0~100"},
+            {"max": 1000, "min": 100, "label": "100~1000"},
+            {"max": 10000, "min": 1000, "label": "1000~10000"},
+            {"max": 30000, "min": 10000, "label": "10000~30000"},
+            {"max": 9999999, "min": 30000, "label": "30000+"},
+    ]
+)
+map.render('covid_map.html')
