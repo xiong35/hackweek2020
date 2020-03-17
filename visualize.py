@@ -30,11 +30,11 @@ map.add(
     is_piecewise=True,
     visual_text_color="#000",
     pieces=[
-            {"max": 100, "min": 0, "label": "0~100"},
+            {"max": 10, "min": 0, "label": "0~10"},
+            {"max": 100, "min": 10, "label": "10~100"},
             {"max": 1000, "min": 100, "label": "100~1000"},
             {"max": 10000, "min": 1000, "label": "1000~10000"},
-            {"max": 30000, "min": 10000, "label": "10000~30000"},
-            {"max": 9999999, "min": 30000, "label": "30000+"},
+            {"max": 99999999, "min": 10000, "label": "10000+"},
     ]
 )
 map.render('covid_map.html')
