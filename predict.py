@@ -15,7 +15,7 @@ lookback = 4
 data_enhance_num = 10
 rand_range = 0.07
 batch_size = 32
-epochs = 7
+epochs = 30
 ONEDAY = dt.timedelta(days=1)
 tomorrow = dt.date.today()+ONEDAY
 
@@ -90,11 +90,12 @@ class Predict:
         self.model = load_model(filename)
 
     def _fine_tune(self, data_array):
-        tune_x = data_array[:, :lookback].reshape(-1, lookback, 1)
-        tune_y = data_array[:, lookback]
         model = self.model
-        model.fit(tune_x, tune_y, batch_size=batch_size,
-                  epochs=epochs, shuffle=True)
+        num, step = data_array.shape
+        x_train = data_array[:, :lookback].reshape(num, step-1, 1)
+        y_train = data_array[:, lookback]
+        model.fit(x_train, y_train, batch_size=32,
+                  epochs=int(num/50), shuffle=True)
         return model
 
     def _predict(self, data_list):
@@ -104,7 +105,7 @@ class Predict:
         model = self._fine_tune(data_array)
 
         pred_x = np.array(data_list[-lookback:])
-        pred_num = model.predict(pred_x.reshape(-1,lookback, 1))
+        pred_num = model.predict(pred_x.reshape(-1, lookback, 1))
 
         return pred_num
 
